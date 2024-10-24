@@ -38,7 +38,7 @@ class MyDict:
         for i, (k, v) in enumerate(bucket):
             if k == key:
                 bucket[i] = (key, value)
-                return
+                return None
 
         bucket.append((key, value))
         self._size += 1
@@ -60,9 +60,7 @@ class MyDict:
             if k == key:
                 del bucket[i]
                 self._size -= 1
-                return
-
-        raise KeyError(f"Key {key} not found")
+                return None
 
     def __contains__(self, key):
         bucket_index = self._hash(key)
