@@ -1,24 +1,24 @@
 def get_count_char(str_):
-    letters = str_.lower()
-    dictionary = {}
+    letters = str_.lower() # мне кажется, что нейминг string_lowered лучше бы отразил смысл этой переменной
+    dictionary = {}  # слишком абстрактное название, что будет находиться в словаре? как это назвать?
     for i in letters:
-        if i.isalpha():
-            if i in dictionary.keys():
-                count = dictionary[i]
-                count += 1
-                dictionary[i] = count
-            else:
+        if i.isalpha():   # можно ли как-то сделать эту проверку без введения лишнего таба для всего что ниже? например, проверив обратное условие
+            if i in dictionary.keys():  # нам точно нужно вызывать метод keys(), особенно при каждой итерации? может, есть более оптимальный способ?
+                count = dictionary[i]   # \
+                count += 1              # — dictionary[i] += 1 делает то же самое, но в 1 строку и оптимальнее
+                dictionary[i] = count   # /
+            else:  # есть ли какие-нибудь способы избавиться от этого else?
                 dictionary[i] = 1
     return dictionary
 
 
 def get_percent_correlation(str_):
     cor = get_count_char(str_)
-    summary = sum(cor.values())
+    summary = sum(cor.values())  # это же просто длина строки, словом summary обычно краткую выжимку обозначают
     for key in cor:
-        cor[key] /= summary
-        cor[key] *= 100
-        cor[key] = round(cor[key])
+        cor[key] /= summary         # \
+        cor[key] *= 100             # — опять же, есть ли способ это записать короче?
+        cor[key] = round(cor[key])  # /
     return cor
 
 
