@@ -93,6 +93,7 @@ my_dict['age'] = 30
 assert my_dict['name'] == 'Alice'
 assert ('city' in my_dict) is False
 assert my_dict['non_existing_field'] is None
+del my_dict['non_existing_field']
 del my_dict['age']
 assert my_dict.keys() == ['name']
 assert my_dict.values() == ['Alice']
