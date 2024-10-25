@@ -63,8 +63,7 @@ class MyDict:
                 return None
 
     def __contains__(self, key):
-        bucket_index = self._hash(key)
-        bucket = self._buckets[bucket_index]
+        bucket = self._get_bucket(key)
 
         for k, v in bucket:
             if k == key:
