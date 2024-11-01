@@ -35,9 +35,10 @@ random_letter = letters[randint(0, len(letters) - 1)]
 # получаем список городов, начинающихся на эту букву
 random_first_letter_cities = cities_by_first_letter[random_letter]
 
-# выбираем случайный город из этого списка
+# выбираем случайный город из этого списка и удаляем его из выборки
 random_index = randint(0, len(random_first_letter_cities) - 1)
 random_city = random_first_letter_cities[random_index]
+random_first_letter_cities.pop(random_index)
 
 # заводим переменную current_city для цикла, добавляем город в кортеж выбранных
 current_city = random_city
